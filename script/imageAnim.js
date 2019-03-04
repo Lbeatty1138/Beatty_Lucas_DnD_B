@@ -55,7 +55,13 @@
 		// empty the thumbnail container
 		piecesBoard.innerHTML = "";
 		creatPuzzlePieces(this.dataset.puzzleref)
-	}
+		// identifying whats in the parent element 
+		var images = document.getElementsByClassName("puzzle-image");
+    			while(images.length > 4){
+    	// Slecting the child Elements and removing them
+        		images[4].parentNode.removeChild(images[4]);
+    }
+}
 
 	// event handling down here
 	puzzleSelectors.forEach(puzzle => puzzle.addEventListener("click", resetPuzzlePieces));
