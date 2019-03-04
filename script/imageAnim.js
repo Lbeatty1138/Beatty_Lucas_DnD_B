@@ -52,7 +52,7 @@
 				stopDrop = stopDrop.parentNode;
 			}
 
-				// Prevents the stacking not alowing anything more then 1 being in the parent element
+				// Prevents stacking not alowing anything more then 1 being in the parent element
 				if (stopDrop && stopDrop.childNodes.length > 0) {
 					return false;
 					e.preventDefault();
