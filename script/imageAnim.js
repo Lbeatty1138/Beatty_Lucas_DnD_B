@@ -45,7 +45,19 @@
 		zone.addEventListener("drop", function(e) {
 			e.preventDefault();
 			console.log("you droped sumpin on me");
+      
+			// let the drop happen checking if theres anything in the parent element
+			let stopDrop = e.target;
+				while (stopDrop !== 0 && !stopDrop.classList.contains("drop-zone")) {
+				stopDrop = stopDrop.parentNode;
+			}
 
+				// Prevents stacking not alowing anything more then 1 being in the parent element
+				if (stopDrop && stopDrop.childNodes.length > 0) {
+					return false;
+					e.preventDefault();
+				}
+      
 			let piece = e.dataTransfer.getData("text/plain");
 			e.target.appendChild(document.querySelector(`#${piece}`));
 		});
