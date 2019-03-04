@@ -47,16 +47,16 @@
 			console.log("you droped sumpin on me");
 
 			// let the drop happen checking if theres anything in the parent element
-			let stopDrop = e.target;
-				while (stopDrop !== 0 && !stopDrop.classList.contains("drop-zone")) {
-				stopDrop = stopDrop.parentNode;
-			}
+			// let stopDrop = e.target;
+			// 	while (stopDrop !== 0 && !stopDrop.classList.contains("drop-zone")) {
+			// 	stopDrop = stopDrop.parentNode;
+			// }
 
 				// Prevents the stacking not alowing anything more then 1 being in the parent element
-				if (stopDrop && stopDrop.childNodes.length > 0) {
-					return false;
-					e.preventDefault();
-				}
+				// if (stopDrop && stopDrop.childNodes.length > 0) {
+				// 	return false;
+				// 	e.preventDefault();
+				// }
 
 			let piece = e.dataTransfer.getData("text/plain");
 			e.target.appendChild(document.querySelector(`#${piece}`));
@@ -67,7 +67,13 @@
 		// empty the thumbnail container
 		piecesBoard.innerHTML = "";
 		creatPuzzlePieces(this.dataset.puzzleref)
-	}
+		// identifying whats in the parent element 
+		var images = document.getElementsByClassName("puzzle-image");
+    			while(images.length > 4){
+    	// Slecting the child Elements and removing them
+        		images[4].parentNode.removeChild(images[4]);
+    }
+}
 
 	// event handling down here
 	puzzleSelectors.forEach(puzzle => puzzle.addEventListener("click", resetPuzzlePieces));
